@@ -1,18 +1,33 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { LoadingScreen } from '@/components/loading-screen'
 import { LoadingProvider, useLoading } from '@/context/loading-context'
 
 function PageContent({ children }: { children: React.ReactNode }) {
   const { isLoaded, setIsLoaded } = useLoading()
+  const [showLoading, setShowLoading] = useState(true)
+
+  useEffect(() => {
+    // Only show loading screen on first visit per session
+    const hasVisited = sessionStorage.getItem('etny-visited')
+    if (hasVisited) {
+      setShowLoading(false)
+      setIsLoaded(true)
+    } else {
+      sessionStorage.setItem('etny-visited', '1')
+    }
+  }, [setIsLoaded])
 
   return (
     <>
-      <LoadingScreen
-        duration={2000}
-        onComplete={() => setIsLoaded(true)}
-      />
+      {showLoading && (
+        <LoadingScreen
+          duration={2000}
+          onComplete={() => setIsLoaded(true)}
+        />
+      )}
 
       {isLoaded && (
         <motion.div
