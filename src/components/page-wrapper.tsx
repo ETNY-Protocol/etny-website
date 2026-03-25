@@ -1,31 +1,45 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { LoadingScreen } from '@/components/loading-screen'
 import { LoadingProvider, useLoading } from '@/context/loading-context'
 
+function isFirstVisit(): boolean {
+  try {
+    return !sessionStorage.getItem('etny-visited')
+  } catch {
+    return true
+  }
+}
+
 function PageContent({ children }: { children: React.ReactNode }) {
   const { isLoaded, setIsLoaded } = useLoading()
-  const [showLoading, setShowLoading] = useState(true)
-
-  useEffect(() => {
-    // Only show loading screen on first visit per session
-    const hasVisited = sessionStorage.getItem('etny-visited')
-    if (hasVisited) {
-      setShowLoading(false)
-      setIsLoaded(true)
-    } else {
-      sessionStorage.setItem('etny-visited', '1')
+  const [showLoading] = useState(() => {
+    const first = isFirstVisit()
+    if (!first) {
+      // Will call setIsLoaded in the first render effect below
     }
-  }, [setIsLoaded])
+    return first
+  })
+
+  // For return visits, mark as loaded immediately
+  if (!showLoading && !isLoaded) {
+    // Safe: this only runs once during initial render before commit
+    setTimeout(() => setIsLoaded(true), 0)
+  }
+
+  const handleComplete = () => {
+    try { sessionStorage.setItem('etny-visited', '1') } catch {}
+    setIsLoaded(true)
+  }
 
   return (
     <>
       {showLoading && (
         <LoadingScreen
           duration={2000}
-          onComplete={() => setIsLoaded(true)}
+          onComplete={handleComplete}
         />
       )}
 
@@ -33,7 +47,7 @@ function PageContent({ children }: { children: React.ReactNode }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.3 }}
         >
           {children}
         </motion.div>
