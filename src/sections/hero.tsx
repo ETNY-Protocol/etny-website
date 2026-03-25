@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/section-label";
 import { Button } from "@/components/button";
 import { useWarp } from "@/components/warp-transition";
+import { FadeIn } from "@/components/fade-in";
 
 export function Hero() {
   const { startWarp } = useWarp();
@@ -57,23 +58,16 @@ export function Hero() {
           Off-chain.
         </motion.h1>
 
-        <motion.p
-          className="mt-6 font-mono text-base text-white/30 leading-relaxed max-w-xl mx-auto [&>strong]:text-white [&>strong]:font-normal"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <strong>Zero gas.</strong> Zero trace.{" "}
-          <strong>~2 seconds.</strong> Powered by MPC resharing inside
-          TEE enclaves.
-        </motion.p>
+        <FadeIn delay={0.4}>
+          <p className="mt-6 font-mono text-base text-white/30 leading-relaxed max-w-xl mx-auto [&>strong]:text-white [&>strong]:font-normal">
+            <strong>Zero gas.</strong> Zero trace.{" "}
+            <strong>~2 seconds.</strong> Powered by MPC resharing inside
+            TEE enclaves.
+          </p>
+        </FadeIn>
 
-        <motion.div
-          className="mt-10 flex items-center justify-center gap-4 flex-wrap"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
+        <FadeIn delay={0.6}>
+          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
           <Button variant="filled" href="#waitlist">
             Join Waitlist
           </Button>
@@ -83,7 +77,8 @@ export function Hero() {
           <Button variant="filled" onClick={startWarp}>
             Launch App
           </Button>
-        </motion.div>
+          </div>
+        </FadeIn>
       </div>
 
       {/* Scroll indicator */}
