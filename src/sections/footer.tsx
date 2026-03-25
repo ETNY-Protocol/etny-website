@@ -56,11 +56,9 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="font-mono text-sm font-semibold tracking-wider">
-            AODA
-          </span>
+          <img src="/images/white.svg" alt="ETNY" className="h-6 w-auto" />
           <span className="font-mono text-xs text-white/30">
-            AODA Protocol 2026. All rights reserved.
+            ETNY Protocol 2026. All rights reserved.
           </span>
         </div>
       </div>

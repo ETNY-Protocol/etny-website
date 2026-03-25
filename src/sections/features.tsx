@@ -49,7 +49,7 @@ export function Features() {
       <div className="max-w-[1200px] mx-auto">
         <AnimatedSection>
           <SectionLabel>Features</SectionLabel>
-          <SectionTitle>Why AODA</SectionTitle>
+          <SectionTitle>Why ETNY</SectionTitle>
         </AnimatedSection>
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

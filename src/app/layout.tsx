@@ -4,7 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AODA — Private Wallet Transfers",
+  title: "ETNY — Private Wallet Transfers",
   description:
     "Transfer crypto wallet ownership off-chain. Zero gas. Zero trace. Powered by MPC and TEE.",
 };
