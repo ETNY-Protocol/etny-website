@@ -1,43 +1,32 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { LoadingScreen } from '@/components/loading-screen'
 import { LoadingProvider, useLoading } from '@/context/loading-context'
 
 function PageContent({ children }: { children: React.ReactNode }) {
   const { isLoaded, setIsLoaded } = useLoading()
-  const [showLoading, setShowLoading] = useState<boolean | null>(null)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Check sessionStorage only on client
-    try {
-      const hasVisited = sessionStorage.getItem('etny-visited')
-      if (hasVisited) {
-        setShowLoading(false)
-        setIsLoaded(true)
-      } else {
-        setShowLoading(true)
-      }
-    } catch {
-      setShowLoading(true)
+    setMounted(true)
+    if (!isHomePage) {
+      setIsLoaded(true)
     }
-  }, [setIsLoaded])
+  }, [isHomePage, setIsLoaded])
 
-  const handleComplete = () => {
-    try { sessionStorage.setItem('etny-visited', '1') } catch {}
-    setIsLoaded(true)
-  }
-
-  // Don't render anything until we know whether to show loading
-  if (showLoading === null) return null
+  if (!mounted) return null
 
   return (
     <>
-      {showLoading && (
+      {isHomePage && !isLoaded && (
         <LoadingScreen
           duration={2000}
-          onComplete={handleComplete}
+          onComplete={() => setIsLoaded(true)}
         />
       )}
 
