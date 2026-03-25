@@ -4,6 +4,7 @@ import { SectionLabel } from "@/components/section-label";
 import { SectionTitle } from "@/components/section-title";
 import { AnimatedSection } from "@/components/animated-section";
 import { NodeVisualization } from "@/components/node-visualization";
+import { IsometricBoxes } from "@/components/isometric-boxes";
 
 const BLOCKS = [
   {
@@ -41,8 +42,9 @@ const BLOCKS = [
 
 export function Security() {
   return (
-    <section id="security" className="py-32 px-6">
-      <div className="max-w-[1200px] mx-auto">
+    <section id="security" className="py-32 px-6 overflow-hidden relative">
+      <IsometricBoxes />
+      <div className="max-w-[1200px] mx-auto relative z-10">
         <AnimatedSection>
           <SectionLabel>Security</SectionLabel>
           <SectionTitle>Built on zero trust</SectionTitle>
