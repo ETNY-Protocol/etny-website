@@ -23,7 +23,7 @@ export default function KitPage() {
           <section>
             <h2>About ETNY</h2>
             <p>
-              ETNY Protocol enables <strong>off-chain transfer of crypto wallet ownership</strong> with zero gas fees, zero blockchain trace, and transfer times under 2 seconds. The protocol uses MPC key resharing inside TEE enclaves to transfer the private key itself — not the tokens.
+              ETNY is a platform for <strong>buying, selling, and sending real gold digitally</strong>. Each ETNYG token represents 1 gram of physical gold, backed by audited reserves.
             </p>
           </section>
 
@@ -31,10 +31,10 @@ export default function KitPage() {
             <h2>Key Facts</h2>
             <ul className="list-none space-y-3 mt-4">
               <li>→ <strong>Founded:</strong> 2026</li>
-              <li>→ <strong>Category:</strong> Privacy Infrastructure / MPC Protocol</li>
-              <li>→ <strong>Key Innovation:</strong> Off-chain wallet ownership transfer via MPC resharing</li>
-              <li>→ <strong>Supported Chains:</strong> EVM (secp256k1) + Solana (Ed25519)</li>
-              <li>→ <strong>Security:</strong> TEE enclaves (Intel SGX / AWS Nitro), Shamir 3-of-5, Pedersen commitments</li>
+              <li>→ <strong>Category:</strong> Real World Assets (RWA) / Fintech</li>
+              <li>→ <strong>Token:</strong> $ETNYG (1 token = 1 gram gold)</li>
+              <li>→ <strong>Network:</strong> Arbitrum (L2)</li>
+              <li>→ <strong>Backing:</strong> Physical gold reserves</li>
             </ul>
           </section>
 
