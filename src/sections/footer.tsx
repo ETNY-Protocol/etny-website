@@ -1,44 +1,33 @@
 "use client";
 
-import { useWarp } from "@/components/warp-transition";
-
-type FooterLink =
-  | { label: string; href: string; warp?: false }
-  | { label: string; warpTo: string; warp: true };
-
-const COLUMNS: { title: string; links: FooterLink[] }[] = [
+const COLUMNS = [
   {
-    title: "Protocol",
+    title: "Product",
     links: [
       { label: "How it works", href: "#how-it-works" },
-      { label: "Security", href: "#security" },
+      { label: "Features", href: "#features" },
       { label: "Roadmap", href: "#roadmap" },
-      { label: "Docs", warpTo: "/docs", warp: true },
     ],
   },
   {
-    title: "Community",
+    title: "Resources",
     links: [
-      { label: "Twitter", href: "#" },
-      { label: "Telegram", href: "#" },
-      { label: "Discord", href: "#" },
+      { label: "Documentation", href: "/docs" },
+      { label: "Press Kit", href: "/kit" },
     ],
   },
   {
-    title: "Legal & Brand",
+    title: "Legal",
     links: [
-      { label: "Terms of Use", warpTo: "/terms", warp: true },
-      { label: "Press Kit", warpTo: "/kit", warp: true },
+      { label: "Terms of Use", href: "/terms" },
     ],
   },
 ];
 
 export function Footer() {
-  const { startWarp } = useWarp();
-
   return (
     <footer className="relative pt-20 pb-12 px-6">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-accent-purple/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-[1200px] mx-auto">
         <div className="h-px bg-white/10 mb-16" />
@@ -52,21 +41,12 @@ export function Footer() {
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    {link.warp ? (
-                      <button
-                        onClick={() => startWarp(link.warpTo)}
-                        className="font-mono text-sm text-white/30 hover:text-white transition-colors"
-                      >
-                        {link.label}
-                      </button>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className="font-mono text-sm text-white/30 hover:text-white transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    )}
+                    <a
+                      href={link.href}
+                      className="font-mono text-sm text-white/30 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -74,10 +54,17 @@ export function Footer() {
           ))}
         </div>
 
+        <div className="h-px bg-white/10 mb-8" />
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src="/images/white.svg" alt="ETNY" className="h-6 w-auto" />
+          <div className="flex items-center gap-3">
+            <img src="/images/white.svg" alt="ETNY" className="h-6 w-auto" />
+            <span className="font-mono text-xs text-white/30">
+              Own real gold, digitally.
+            </span>
+          </div>
           <span className="font-mono text-xs text-white/30">
-            ETNY Protocol 2026. All rights reserved.
+            © 2026 ETNY. All rights reserved.
           </span>
         </div>
       </div>
