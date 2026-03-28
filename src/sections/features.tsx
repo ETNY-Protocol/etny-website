@@ -8,24 +8,16 @@ import { IsometricBoxes } from "@/components/isometric-boxes";
 function VaultIcon() {
   return (
     <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outer vault box */}
-      <rect x="12" y="16" width="56" height="44" rx="6" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
-      {/* Inner door */}
-      <rect x="22" y="24" width="36" height="28" rx="3" stroke="currentColor" strokeWidth="1.2" opacity="0.5" />
-      {/* Handle circle */}
-      <circle cx="40" cy="38" r="8" stroke="currentColor" strokeWidth="1.2" opacity="0.5" />
-      {/* Handle cross */}
-      <line x1="40" y1="32" x2="40" y2="44" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
-      <line x1="34" y1="38" x2="46" y2="38" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
-      {/* Lock dot */}
-      <circle cx="40" cy="38" r="2" fill="currentColor" opacity="0.8" />
-      {/* Corner dots */}
-      <circle cx="12" cy="16" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="68" cy="16" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="68" cy="60" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="12" cy="60" r="2" fill="currentColor" opacity="0.6" />
-      {/* Base line */}
-      <line x1="18" y1="64" x2="62" y2="64" stroke="currentColor" strokeWidth="1.2" opacity="0.3" />
+      <rect x="10" y="14" width="60" height="48" rx="6" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+      <rect x="20" y="22" width="40" height="32" rx="4" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+      <circle cx="40" cy="38" r="10" stroke="currentColor" strokeWidth="1.5" opacity="0.8" />
+      <line x1="40" y1="30" x2="40" y2="46" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+      <line x1="32" y1="38" x2="48" y2="38" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+      <circle cx="10" cy="14" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="70" cy="14" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="70" cy="62" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="10" cy="62" r="2.5" fill="white" opacity="0.9" />
+      <line x1="16" y1="66" x2="64" y2="66" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
     </svg>
   );
 }
@@ -33,24 +25,17 @@ function VaultIcon() {
 function LightningIcon() {
   return (
     <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outer circle */}
-      <circle cx="40" cy="40" r="24" stroke="currentColor" strokeWidth="1.2" opacity="0.3" />
-      {/* Inner circle */}
-      <circle cx="40" cy="40" r="14" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
-      {/* Lightning bolt */}
-      <path d="M42 24L34 42H40L38 56L48 36H42L42 24Z" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.7" />
-      {/* Center dot */}
-      <circle cx="40" cy="40" r="2" fill="currentColor" opacity="0.8" />
-      {/* Orbital dots */}
-      <circle cx="40" cy="16" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="40" cy="64" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="16" cy="40" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="64" cy="40" r="2" fill="currentColor" opacity="0.6" />
-      {/* Diagonal lines */}
-      <line x1="22" y1="22" x2="28" y2="28" stroke="currentColor" strokeWidth="1" opacity="0.25" />
-      <line x1="52" y1="52" x2="58" y2="58" stroke="currentColor" strokeWidth="1" opacity="0.25" />
-      <line x1="58" y1="22" x2="52" y2="28" stroke="currentColor" strokeWidth="1" opacity="0.25" />
-      <line x1="22" y1="58" x2="28" y2="52" stroke="currentColor" strokeWidth="1" opacity="0.25" />
+      <circle cx="40" cy="40" r="26" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+      <circle cx="40" cy="40" r="16" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+      <path d="M44 20L33 44H41L37 60L50 34H42L44 20Z" fill="white" opacity="0.9" />
+      <circle cx="40" cy="14" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="40" cy="66" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="14" cy="40" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="66" cy="40" r="2.5" fill="white" opacity="0.9" />
+      <line x1="20" y1="20" x2="26" y2="26" stroke="currentColor" strokeWidth="1.2" opacity="0.35" />
+      <line x1="54" y1="54" x2="60" y2="60" stroke="currentColor" strokeWidth="1.2" opacity="0.35" />
+      <line x1="60" y1="20" x2="54" y2="26" stroke="currentColor" strokeWidth="1.2" opacity="0.35" />
+      <line x1="20" y1="60" x2="26" y2="54" stroke="currentColor" strokeWidth="1.2" opacity="0.35" />
     </svg>
   );
 }
@@ -58,22 +43,15 @@ function LightningIcon() {
 function ShieldIcon() {
   return (
     <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Hexagon */}
-      <path d="M40 12L62 24V48L40 60L18 48V24L40 12Z" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
-      {/* Inner hexagon */}
-      <path d="M40 22L52 29V43L40 50L28 43V29L40 22Z" stroke="currentColor" strokeWidth="1.2" opacity="0.5" />
-      {/* Checkmark */}
-      <path d="M33 36L38 41L47 31" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-      {/* Vertex dots */}
-      <circle cx="40" cy="12" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="62" cy="24" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="62" cy="48" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="40" cy="60" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="18" cy="48" r="2" fill="currentColor" opacity="0.6" />
-      <circle cx="18" cy="24" r="2" fill="currentColor" opacity="0.6" />
-      {/* Connection lines from hex to outer */}
-      <line x1="40" y1="8" x2="40" y2="12" stroke="currentColor" strokeWidth="1" opacity="0.3" />
-      <line x1="40" y1="60" x2="40" y2="64" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+      <path d="M40 10L64 23V49L40 62L16 49V23L40 10Z" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+      <path d="M40 20L54 28V44L40 52L26 44V28L40 20Z" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+      <path d="M32 36L38 42L49 30" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
+      <circle cx="40" cy="10" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="64" cy="23" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="64" cy="49" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="40" cy="62" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="16" cy="49" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="16" cy="23" r="2.5" fill="white" opacity="0.9" />
     </svg>
   );
 }
@@ -81,21 +59,14 @@ function ShieldIcon() {
 function CoinIcon() {
   return (
     <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outer rounded square */}
-      <rect x="14" y="14" width="52" height="52" rx="14" stroke="currentColor" strokeWidth="1.2" opacity="0.3" />
-      {/* Inner rounded square */}
-      <rect x="24" y="24" width="32" height="32" rx="8" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
-      {/* Star/sparkle */}
-      <path d="M40 30L42 37L49 37L43.5 41.5L45.5 48.5L40 44.5L34.5 48.5L36.5 41.5L31 37L38 37L40 30Z" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.6" />
-      {/* Center dot */}
-      <circle cx="40" cy="39" r="2" fill="currentColor" opacity="0.8" />
-      {/* Corner dots */}
-      <circle cx="14" cy="14" r="2" fill="currentColor" opacity="0.5" />
-      <circle cx="66" cy="14" r="2" fill="currentColor" opacity="0.5" />
-      <circle cx="66" cy="66" r="2" fill="currentColor" opacity="0.5" />
-      <circle cx="14" cy="66" r="2" fill="currentColor" opacity="0.5" />
-      {/* Bottom accent line */}
-      <line x1="35" y1="62" x2="45" y2="62" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
+      <rect x="12" y="12" width="56" height="56" rx="14" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+      <rect x="24" y="24" width="32" height="32" rx="8" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+      <path d="M40 30V50" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
+      <path d="M46 34C46 34 44 32 40 32C36 32 33 34 33 37C33 40 36 41 40 42C44 43 47 44 47 47C47 50 44 52 40 52C36 52 34 50 34 50" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
+      <circle cx="12" cy="12" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="68" cy="12" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="68" cy="68" r="2.5" fill="white" opacity="0.9" />
+      <circle cx="12" cy="68" r="2.5" fill="white" opacity="0.9" />
     </svg>
   );
 }
