@@ -3,15 +3,16 @@
 import { SectionLabel } from "@/components/section-label";
 import { SectionTitle } from "@/components/section-title";
 import { AnimatedSection } from "@/components/animated-section";
+import { IsometricBoxes } from "@/components/isometric-boxes";
 
 const FEATURES = [
   {
     value: "Real",
-    label: "Physical Gold",
+    label: "Real Assets",
     description: (
       <>
-        Not paper gold, not derivatives. Your tokens are backed by{" "}
-        <strong>real gold in audited vaults.</strong>
+        Not paper derivatives. Your tokens are backed by{" "}
+        <strong>real assets in audited vaults.</strong>
       </>
     ),
   },
@@ -31,7 +32,7 @@ const FEATURES = [
     description: (
       <>
         Regular audits, <strong>transparent reserves</strong>. Always know your
-        gold is there.
+        assets are there.
       </>
     ),
   },
@@ -49,17 +50,19 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section className="py-32 px-6">
-      <div className="max-w-[1200px] mx-auto">
+    <section className="relative py-32 px-6 overflow-hidden">
+      <IsometricBoxes className="opacity-40 pointer-events-auto" />
+
+      <div className="relative max-w-[1200px] mx-auto">
         <AnimatedSection>
           <SectionLabel>Why ETNY</SectionLabel>
-          <SectionTitle>Gold ownership, reimagined</SectionTitle>
+          <SectionTitle>Asset ownership, reimagined</SectionTitle>
         </AnimatedSection>
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {FEATURES.map((feature, i) => (
             <AnimatedSection key={feature.label} delay={i * 0.1}>
-              <div className="p-6 rounded-[5px] border border-white/10 bg-surface-0 hover:border-white/20 transition-colors">
+              <div className="h-full p-6 rounded-[5px] border border-white/10 bg-surface-0 hover:border-white/20 transition-colors">
                 <span className="font-mono text-xs uppercase tracking-wide text-white/30">
                   {feature.label}
                 </span>

@@ -424,7 +424,18 @@ function ParticleSystem({
 
 export function LogoParticles({ className = '' }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isDark = true
+  const [isDark, setIsDark] = useState(true)
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme')
+      setIsDark(theme !== 'light')
+    }
+    checkTheme()
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
   const mouseWorld = useRef({ x: -9999, y: -9999, active: false })
   const [isVisible, setIsVisible] = useState(true)
 

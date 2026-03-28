@@ -17,11 +17,11 @@ const STEPS = [
   },
   {
     number: "02",
-    title: "Buy Gold",
+    title: "Buy Assets",
     description: (
       <>
-        Purchase <strong>ETNYG tokens</strong> with your bank card. Each ETNYG
-        equals <strong>1 gram of real gold</strong>, backed by physical reserves.
+        Purchase <strong>tokenized assets</strong> with your bank card. Starting
+        with gold — <strong>1 ETNYG = 1 gram</strong>, backed by physical reserves.
       </>
     ),
   },
@@ -30,7 +30,7 @@ const STEPS = [
     title: "Own & Track",
     description: (
       <>
-        See your gold balance in <strong>grams and dollars</strong>. Get notified
+        See your balance in <strong>real units and dollars</strong>. Get notified
         about audits, reserves status, and <strong>price movements.</strong>
       </>
     ),
@@ -40,7 +40,7 @@ const STEPS = [
     title: "Sell or Send",
     description: (
       <>
-        Sell back to fiat <strong>instantly</strong> or send gold to anyone in
+        Sell back to fiat <strong>instantly</strong> or send assets to anyone in
         seconds. <strong>Full liquidity, anytime.</strong>
       </>
     ),
@@ -53,7 +53,7 @@ export function HowItWorks() {
       <div className="max-w-[1200px] mx-auto">
         <AnimatedSection>
           <SectionLabel>How It Works</SectionLabel>
-          <SectionTitle>Four steps to owning gold</SectionTitle>
+          <SectionTitle>Four steps to owning real assets</SectionTitle>
         </AnimatedSection>
 
         <div className="mt-16 relative">
