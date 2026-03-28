@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { SectionLabel } from "@/components/section-label";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
-import { AssetOrbits } from "@/components/asset-orbits";
 
 const LogoParticles = dynamic(
   () => import('@/components/3d/logo-particles').then((mod) => mod.LogoParticles),
@@ -100,11 +99,6 @@ export function Hero() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.8}>
-          <div className="mt-14 pointer-events-auto">
-            <AssetOrbits />
-          </div>
-        </FadeIn>
       </div>
 
       {/* Scroll indicator */}
