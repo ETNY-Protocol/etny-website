@@ -131,20 +131,22 @@ function StepCard({
     [0.95, 1, 0.98]
   );
 
-  const borderOpacity = useTransform(
+  const borderColor = useTransform(
     scrollYProgress,
     [start, mid, end],
-    [0.1, 0.25, 0.1]
+    ["rgba(255,255,255,0.1)", "rgba(255,255,255,0.25)", "rgba(255,255,255,0.1)"]
   );
 
   return (
     <motion.div
-      className="flex-shrink-0 rounded-xl p-8 border bg-surface-1/50 backdrop-blur-sm"
+      className="flex-shrink-0 rounded-xl p-8 bg-surface-1/50 backdrop-blur-sm"
       style={{
         width: CARD_WIDTH,
         opacity,
         scale,
-        borderColor: useTransform(borderOpacity, (v) => `rgba(255,255,255,${v})`),
+        borderWidth: 1,
+        borderStyle: "solid",
+        borderColor,
       }}
     >
       {/* Step number */}
