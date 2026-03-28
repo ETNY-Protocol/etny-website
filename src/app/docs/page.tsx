@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'ETNY Protocol — Documentation',
+  title: 'ETNY Gold — Documentation',
 }
 
 export default function DocsPage() {
@@ -16,68 +16,77 @@ export default function DocsPage() {
           [ DOCUMENTATION ]
         </span>
         <h1 className="text-[clamp(2rem,4vw,3rem)] font-sans font-normal mb-8">
-          ETNY Protocol Docs
+          ETNY Gold Platform Docs
         </h1>
 
         <div className="space-y-12 font-mono text-sm leading-relaxed text-white/30 [&_strong]:text-white [&_strong]:font-normal [&_h2]:text-white [&_h2]:font-sans [&_h2]:text-xl [&_h2]:font-normal [&_h2]:mb-4 [&_h2]:mt-0">
           <section>
             <h2>Overview</h2>
             <p>
-              ETNY is a crypto privacy protocol that enables <strong>off-chain transfer of wallet ownership</strong> without any blockchain transaction. Instead of sending tokens on-chain, ETNY transfers the <strong>private key itself</strong> using MPC resharing inside hardware-isolated TEE enclaves.
+              ETNY is a platform for <strong>buying, selling, and sending real gold digitally</strong>. Each <strong>ETNYG token represents 1 gram of physical gold</strong>, fully backed and audited. The platform is built on <strong>Arbitrum L2</strong>, providing fast and low-cost transactions while inheriting Ethereum's security.
             </p>
           </section>
 
           <section>
             <h2>How It Works</h2>
             <p>
-              The protocol uses a <strong>2-of-2 MPC key scheme</strong>. The private key never exists in whole form. Shard 1 lives in the device's Secure Enclave (iOS) or StrongBox (Android). Shard 2 is split into <strong>5 sub-shards via Shamir 3-of-5</strong> threshold scheme, stored across 5 independent TEE enclave nodes.
+              Users sign up via <strong>email or Google</strong> through Privy — no crypto wallet or seed phrase required. Once registered, users can <strong>buy ETNYG tokens with a bank card</strong>. Under the hood, the platform purchases <strong>PAXG (a gold-backed stablecoin)</strong> and wraps it into ETNYG.
             </p>
             <p className="mt-4">
-              Transfer happens in two phases: <strong>PREPARE</strong> (generate new shards, ~800ms) and <strong>COMMIT</strong> (activate new, tombstone old, ~300ms). Total transfer time is <strong>under 2 seconds</strong>.
+              <strong>1 ETNYG = 1 gram of gold.</strong> Users can sell their tokens back to fiat instantly or send gold to other users on the platform — all without needing to understand blockchain mechanics.
             </p>
           </section>
 
           <section>
-            <h2>Key Properties</h2>
+            <h2>Token Model</h2>
+            <p>
+              <strong>ETNYG</strong> is an <strong>ERC-20 token on Arbitrum</strong>. In the future, when a user accumulates 1 gram or more, they will be able to convert their tokens into an <strong>NFT tied to a specific gold bar</strong> — with serial number, refinery, and vault location recorded on-chain.
+            </p>
+            <p className="mt-4">
+              The ETNY token family includes:
+            </p>
             <ul className="list-none space-y-3 mt-4">
-              <li>→ <strong>Zero gas fees</strong> — no blockchain transaction during transfer</li>
-              <li>→ <strong>Zero on-chain trace</strong> — wallet address stays the same</li>
-              <li>→ <strong>~2 second transfers</strong> — MPC resharing completes in under 2 seconds</li>
-              <li>→ <strong>No seed phrases</strong> — key shards replace traditional recovery</li>
-              <li>→ <strong>Chain agnostic</strong> — works with EVM (secp256k1) and Solana (Ed25519)</li>
+              <li>→ <strong>$ETNYG</strong> — Gold (1 token = 1 gram of gold)</li>
+              <li>→ <strong>$ETNYS</strong> — Silver (1 token = 1 gram of silver)</li>
+              <li>→ <strong>$ETNYP</strong> — Platinum (1 token = 1 gram of platinum)</li>
             </ul>
           </section>
 
           <section>
-            <h2>Security Model</h2>
-            <p>
-              <strong>TEE Enclaves:</strong> Each node runs inside Intel SGX or AWS Nitro enclaves. Sub-shards are sealed in silicon — not even node operators can access them.
-            </p>
-            <p className="mt-4">
-              <strong>MPC Resharing:</strong> During transfer, new key shards are generated through multi-party computation. Old shards are tombstoned (marked unusable) then purged.
-            </p>
-            <p className="mt-4">
-              <strong>Proactive Secret Sharing:</strong> Sub-shards are rotated every 5-10 minutes. Even if an attacker captures a shard, it becomes useless after rotation.
-            </p>
+            <h2>Features</h2>
+            <ul className="list-none space-y-3 mt-4">
+              <li>→ <strong>Buy / Sell with fiat</strong> — purchase and liquidate gold using your bank card</li>
+              <li>→ <strong>Send gold to users</strong> — transfer gold to any platform user instantly</li>
+              <li>→ <strong>Swap between assets</strong> — exchange gold, silver, and platinum tokens</li>
+              <li>→ <strong>Auto-buy (DCA)</strong> — set up recurring purchases to dollar-cost average into gold</li>
+              <li>→ <strong>Price alerts</strong> — get notified when gold hits your target price</li>
+              <li>→ <strong>Gift cards</strong> — send gold as a gift to anyone</li>
+              <li>→ <strong>Instant liquidity</strong> — sell your gold back to fiat at any time</li>
+              <li>→ <strong>Audit notifications</strong> — receive updates when reserves are audited</li>
+            </ul>
           </section>
 
           <section>
-            <h2>Architecture</h2>
-            <p>
-              <strong>Client:</strong> Mobile app with Secure Enclave / StrongBox for Shard 1 storage. Communicates with nodes via gRPC + TLS 1.3.
-            </p>
-            <p className="mt-4">
-              <strong>Nodes:</strong> 5 TEE nodes per wallet. Each holds one Shamir sub-shard. Go process + separate enclave process communicating via unix socket + protobuf IPC.
-            </p>
-            <p className="mt-4">
-              <strong>ZKP Layer:</strong> Pedersen commitments on Ristretto255. Chain-agnostic — nodes don't know what blockchain the wallet uses.
-            </p>
+            <h2>Business Model</h2>
+            <ul className="list-none space-y-3 mt-4">
+              <li>→ <strong>Trading commission</strong> — 0.5-1% per buy/sell transaction</li>
+              <li>→ <strong>Spread</strong> — small markup between buy and sell prices</li>
+              <li>→ <strong>Storage fee</strong> — annual fee for physical gold custody</li>
+              <li>→ <strong>Allocation fee</strong> — one-time fee when converting tokens to a bar-backed NFT</li>
+              <li>→ <strong>Annual audit fee</strong> — covers third-party reserve verification</li>
+            </ul>
           </section>
 
           <section>
-            <h2>API Reference</h2>
+            <h2>Security</h2>
             <p>
-              Full API documentation is available on <strong>GitHub</strong>. The protocol exposes gRPC services for wallet management (DKG, signing), transfer orchestration (resharing, confirmation), and node P2P communication.
+              <strong>Authentication:</strong> Powered by Privy, supporting email and Google sign-in. Each user gets an embedded wallet — no seed phrases, no browser extensions required.
+            </p>
+            <p className="mt-4">
+              <strong>Arbitrum L2:</strong> All token operations run on Arbitrum, providing low gas costs and fast finality while inheriting Ethereum mainnet security.
+            </p>
+            <p className="mt-4">
+              <strong>Smart Contracts:</strong> ETNYG token contracts are deployed on Arbitrum and govern minting, burning, and transfers. All contract logic is auditable on-chain.
             </p>
           </section>
         </div>
