@@ -90,7 +90,7 @@ export function Hero() {
 
         <FadeIn delay={0.6}>
           <div className="mt-10 flex items-center justify-center gap-4 flex-wrap pointer-events-auto">
-          <Button variant="filled" href="https://app.etny.com">
+          <Button variant="filled" href="#">
             Launch App
           </Button>
           <Button variant="ghost" href="#how-it-works">
